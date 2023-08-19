@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h1>Prompt based calculator</h1>
+        <button id="cal" onclick="calculate()">Click button for the Calculation</button>
+        <span id="now"></span>
+    </div>
+
+    <script>
+        let button = document.getElementById('cal')
+        let current = document.getElementById('now')
+
+
+        function calculate() {
+
+            alert('Basic and Advance calculator by Sekinat Wahab')
+            alert('Basically for conversion')
+
+            let Selecttype = prompt(
+                ` What calculation mode do you want 
+                  Enter 1 for basic calculations like +,-,*,/ 
+                  Enter 2 for advanced calculation mode like cos, tan, sin e.t.c 
+                  Enter 3 for Converting units like minute to seconds e.t.c`
+            )
+            let func;
+
+            if (Selecttype == 1) {
+
+                let input1 = prompt('Enter a number:')
+                let symbol = prompt('Enter any symbol(+,-,/,*):')
+                let input2 = prompt(' Enter the second number to complete the calculation')
+                let answer, before;
+
+
+                switch (symbol) {
+                    case '+':
+                        if (isNaN(input1) || input1 == "" && input2 == "") {
+                            alert('please insert a valid input')
+                        } else {
+                            alert(parseInt(input1) + parseInt(input2))
+                            answer = parseInt(input1) + parseInt(input2)
+                            before = `<li>${input1} ${symbol} ${input2} = ${answer}</li>`
+                            current.innerHTML += before
+                        }
+                        break;
+
+                    case '-':
+                        if (isNaN(input1) || input1 == "" && input2 == "") {
+                            alert(' please insert a valid input')
+                        } else {
+                            alert(parseInt(input1) - parseInt(input2))
+                            answer = parseInt(input1) - parseInt(input2)
+                            before = `<li>${input1} ${symbol} ${input2} = ${answer}</li>`
+                            current.innerHTML -= before
+                        }
+                        break;
+
+                    case '/':
+                        if (symbol == '/' && input1 <= 0) {
+                            alert('syntatic error')
+                        } else {
+                            alert(parseInt(input1) / parseInt(input2))
+                            answer = parseInt(input1) / parseInt(input2)
+                            before = `<li>${input1} ${symbol} ${input2} = ${answer}</li>`
+                            current.innerHTML /= before
+                        }
+                        break;
+
+                    case '*':
+                        if (operator == '*' && input1 <= 0) {
+                            alert('syntatic error')
+                        } else {
+                            alert(parseInt(input1) * parseInt(input2))
+                            answer = parseInt(input1) * parseInt(input2)
+                            before = `<li>${input1} ${symbol} ${input2} = ${answer}</li>`
+                            current.innerHTML *= before
+                        }
+                        break;
+                    default:
+                        alert('Invalid symbol!')
+                }
+
+
+
+            } else if (Selecttype == 2) {
+                let func = prompt(` Enter 1 for sine 
+                2 for cosine 
+                3 for tanget 
+                4 for square root`)
+            } 
+
+
+            else if (Selecttype == 3) {
+                
+            }
+        }
+    </script>
+</body>
+
+</html>
